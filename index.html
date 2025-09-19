@@ -17,26 +17,79 @@
   <meta property="og:image" content="https://www.rdmteam.com.br/og-image.jpg" />
 
   <!-- JSON-LD (structured data) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "RDM Marketing Digital",
-    "url": "https://www.rdmteam.com.br/",
-    "logo": "https://www.rdmteam.com.br/logo.png",
-    "sameAs": [
-      "https://www.instagram.com/rdm__digital",
-      "https://www.linkedin.com/company/rdm"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
+<script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "RDM Marketing Digital",
+      "url": "https://www.rdmteam.com.br/",
+      "logo": "https://www.rdmteam.com.br/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ivo Fleming, 168",
+        "addressLocality": "Curitiba",
+        "addressRegion": "PR",
+        "postalCode": "82600-480",
+        "addressCountry": "BR"
+      },
       "telephone": "+55-41-98475-5463",
-      "contactType": "sales",
+      "sameAs": [
+        "https://www.instagram.com/rdm__digital",
+        "https://www.linkedin.com/company/rdm"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+55-41-98475-5463",
+        "contactType": "sales",
+        "areaServed": "BR",
+        "availableLanguage": "pt-BR"
+      }]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Marketing Digital",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "RDM Marketing Digital"
+      },
       "areaServed": "BR",
-      "availableLanguage": "pt-BR"
-    }]
-  }
-  </script>
+      "url": "https://www.rdmteam.com.br/servicos"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como contratar a RDM Marketing Digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Você pode preencher o formulário no site ou falar direto pelo WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês atendem empresas de todo o Brasil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, todos os serviços podem ser contratados remotamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais serviços vocês oferecem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Social Media, Tráfego Pago, E-mail Marketing e Design Gráfico."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
   <!-- Google Font (via HTTPS) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -404,16 +457,31 @@ form input, form textarea {
   <div class="container">
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="RDM" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+  <picture>
+    <source srcset="logo.webp" type="image/webp">
+    <source srcset="logo.png" type="image/png">
+    <img 
+      src="logo.png" 
+      alt="RDM" 
+      width="44" 
+      height="44"
+      style="width:44px;height:44px;border-radius:8px;object-fit:cover;display:block;"
+    >
+  </picture>
         <span>RDM <small style="display:block;font-weight:600;color:var(--muted);font-size:12px">Marketing Digital</small></span>
       </div>
 
-      <div class="hamburger" onclick="document.querySelector('.navlinks').classList.toggle('active')">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
+<div class="hamburger"
+     role="button" 
+     aria-label="Abrir menu de navegação" 
+     aria-expanded="false" 
+     tabindex="0"
+     onclick="document.querySelector('.navlinks').classList.toggle('active'); 
+              this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
       <div class="navlinks" aria-hidden="true">
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
@@ -507,7 +575,7 @@ form input, form textarea {
 </section>
 
   <section class="plano" style="padding:28px 16px;background:linear-gradient(180deg, rgba(11,179,154,0.06), transparent);">
-    <div class="container"; id="portfolio">
+    <div class="container" id="portfolio">
       <h2>Planos </h2>
       <p class="lead">Oferecemos alguns pacotes flexíveis para mensuração de custo, mas estamos 100% disponiveis para criar propostas personalizadas pensando em seu negócio e resultados esperados!</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px">
